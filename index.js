@@ -1,9 +1,11 @@
-import { Server } from "@hocuspocus/server";
-import { SQLite } from "@hocuspocus/extension-sqlite";
+import { Server } from '@hocuspocus/server'
+import { RocksDB } from '@hocuspocus/extension-rocksdb'
 
 const server = Server.configure({
-  port:  process.env.PORT || 80,
-  extensions: [new SQLite({ path: "./database" })],
-});
+  port: 80,
+  extensions: [
+    new RocksDB({ path: './database' }),
+  ],
+})
 
-server.listen();
+server.listen()
